@@ -1,0 +1,15 @@
+ LISTADO DE COMMITS
+ * 
+ * Refactorizacion:
+ * - Creada la clase Player
+ * - Añadidos los atributos currentRoom y visitedRooms a la clase Player
+ * - Añadido atributo player a la clase Game
+ * - Mover los metodos eat, look, goRoom, back y printLocationInfo a Player
+ * - Añadir a la clase Player el metodo setCurrentRoom
+ * - Eliminados los atributos currentRoom y visitedRooms de Game
+ * 
+ * Rama de nuevas funcionalidades:
+ * - Ahora el jugador es capaz de llevar objetos con el
+ * - Añadido comando items para ver los items que lleva el jugador
+ * - Añadido un identificador unico a los items
+ * - Implementado el comando take que permite al jugador coger objeto 

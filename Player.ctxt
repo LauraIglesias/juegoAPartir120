@@ -1,0 +1,24 @@
+#BlueJ class context
+comment0.params=
+comment0.target=Player()
+comment1.params=
+comment1.target=void\ look()
+comment1.text=\ \r\n\ Print\ the\ room's\ long\ description\ \r\n
+comment2.params=
+comment2.target=void\ eat()
+comment2.text=\r\n\ The\ player\ eats\r\n
+comment3.params=
+comment3.target=void\ back()
+comment3.text=\r\n\ Return\ to\ the\ previous\ room\r\n
+comment4.params=
+comment4.target=void\ printLocationInfo()
+comment5.params=nuevaRoom
+comment5.target=void\ setCurrentRoom(Room)
+comment5.text=\r\n\ Modifica\ la\ habitacion\ en\ la\ que\ esta\ el\ jugador\r\n\ \r\n\ @param\ nuevaRoom\ la\ nueva\ habitacion\r\n
+comment6.params=
+comment6.target=void\ items()
+comment6.text=\r\n\ Imprime\ por\ pantalla\ los\ items\ que\ tiene\ ese\ jugador\r\n\ \r\n
+comment7.params=
+comment7.target=double\ getTotalWeightItems()
+comment7.text=\r\n\ Calculate\ the\ total\ weight\ for\ player's\ items.\ \ \r\n\ \r\n\ @return\ the\ total\ weight\ for\ the\ player's\ items\r\n
+numComments=8

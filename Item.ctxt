@@ -1,0 +1,17 @@
+#BlueJ class context
+comment0.params=description\ weight\ canBeTaken
+comment0.target=Item(java.lang.String,\ double,\ boolean)
+comment0.text=\r\n\ Constructor\ for\ objects\ of\ class\ Item\r\n\ \r\n\ @param\ description\ The\ item's\ description\r\n\ @param\ weight\ The\ item's\ weight\r\n
+comment1.params=
+comment1.target=java.lang.String\ getLongDescription()
+comment1.text=\r\n\ Get\ the\ long\ description\ of\ item\r\n\ \r\n\ @return\ \ \ \ \ The\ long\ description\ of\ item\r\n
+comment2.params=
+comment2.target=java.lang.String\ getId()
+comment2.text=\r\n\ Devuelve\ el\ id\ del\ objeto\r\n\ \r\n\ @return\ el\ id\ del\ objeto\r\n
+comment3.params=
+comment3.target=double\ getWeight()
+comment3.text=\r\n\ Get\ the\ item's\ weight\r\n\ \r\n\ @return\ weight\ the\ item's\ weight\ in\ kg\r\n
+comment4.params=
+comment4.target=boolean\ canBeTaken()
+comment4.text=\r\n\ Return\ if\ the\ item\ can\ be\ taken\r\n\ \r\n\ @return\ true\ if\ the\ item\ can\ be\ taken,\ false\ otherwise\r\n
+numComments=5
