@@ -71,11 +71,11 @@ public class Command
     /**
      * @return true if this command was not understood.
      * true si este comando no se entendió.
-     * devuelve tpo Option desconocido si el comando no se entendio
+     * devuelve tipo Option desconocido si el comando no se entendio
      */
-    public Option isUnknown()
+    public boolean isUnknown()
     {
-        return commandWord.UNKNOWN;
+        return (commandWord == Option.UNKNOWN);
     }
 
     /**
