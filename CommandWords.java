@@ -66,5 +66,24 @@ public class CommandWords
         }
         System.out.println();
     }
+
+    /**
+     * Return the Option associated with a word.
+     * @param commandWord The word to look up (as a string).
+     * @return The Option correspondng to commandWord, or UNKNOWN
+     *         if it is not a valid command word.
+     * Devuelva la opción asociada a una palabra.
+     * @ Param commandWord La palabra que desee buscar (como una cadena).
+     * @ Return la opción correspondiente al commandWord o DESCONOCIDO
+     * Si no es una palabra de comando válido.
+     */
+    public Option getCommandWord(String commandWord)
+    {
+        Option opciones = Option.UNKNOWN; 
+        if(isCommand(commandWord) == true){
+            opciones =  comandos.get(commandWord);
+        }
+        return opciones;
+    }
 }
 
