@@ -30,7 +30,7 @@
 
 public class Command
 {
-    private String commandWord;
+    private Option commandWord;
     private String secondWord;
 
     /**
@@ -40,7 +40,7 @@ public class Command
      *                  was not recognised.
      * @param secondWord The second word of the command.
      */
-    public Command(String firstWord, String secondWord)
+    public Command(Option firstWord, String secondWord)
     {
         commandWord = firstWord;
         this.secondWord = secondWord;
@@ -53,7 +53,7 @@ public class Command
      * Si el comando no se entiende, el resultado es nulo.
      * @return The command word.
      */
-    public String getCommandWord()
+    public Option getCommandWord()
     {
         return commandWord;
     }
@@ -71,10 +71,11 @@ public class Command
     /**
      * @return true if this command was not understood.
      * true si este comando no se entendió.
+     * devuelve tpo Option desconocido si el comando no se entendio
      */
-    public boolean isUnknown()
+    public Option isUnknown()
     {
-        return (commandWord == null);
+        return commandWord.UNKNOWN;
     }
 
     /**
