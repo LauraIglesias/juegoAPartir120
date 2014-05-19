@@ -43,15 +43,7 @@ public class CommandWords
      */
     public boolean isCommand(String aString)
     {
-        boolean estaComando = false;
-        Iterator it = comandos.entrySet().iterator();
-        while(it.hasNext() && estaComando){
-            if(comandos.containsKey(aString)){
-                estaComando = true;
-            }
-        }
-        // if we get here, the string was not found in the commands
-        return estaComando;
+        return comandos.containsKey(aString);
     }
 
     /**
@@ -60,11 +52,9 @@ public class CommandWords
      */    
     public void showAll()
     {
-        Iterator it = comandos.entrySet().iterator();
-        while(it.hasNext()){
-            System.out.println(comandos.keySet());
+        for(String key :comandos.keySet()){
+            System.out.print(" " + key);
         }
-        System.out.println();
     }
 
     /**
