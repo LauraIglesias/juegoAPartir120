@@ -21,7 +21,6 @@ public class Game
     private Parser parser;
     private Player player;
     private int siguienteIDAAsignar;
-    
 
     /**
      * Create the game and initialise its internal map.
@@ -69,23 +68,23 @@ public class Game
 
         portugal.setExit("north", galicia);
         portugal.setExit("east", castilla);
-        
+
         //define the items
         galicia.addItem(new Item("Una espada gaelica", 3.5, true));
         galicia.addItem(new Item("Un tonel de vino", 10.2, false));
-        
+
         leon.addItem(new Item("El Santo Grial", 1.4, true));
-        
+
         castilla.addItem(new Item("Un cuchillo afilado", 0.5, true));
         castilla.addItem(new Item("Un cofre de oro", 3.0, true));
         castilla.addItem(new Item("Un baul de madera", 24.8, true));
-        
+
         aragon.addItem(new Item("Una carreta", 35.5, false));
-        
+
         granada.addItem(new Item("Una pocima contra el dolor de cabeza", 0.6, true));
-        
+
         portugal.addItem(new Item("Una armadura", 20.2, false));        
-    
+
         player.setCurrentRoom(leon);
     }
 
@@ -133,35 +132,35 @@ public class Game
             System.out.println("I don't know what you mean...");
             return false;
         }
-
-        String commandWord = command.getCommandWord();
-        if (commandWord.equals("help")) {
+        
+        Option commandWord = command.getCommandWord();
+        if (commandWord == Option.HELP) {
             printHelp();
         }
-        else if (commandWord.equals("go")) {
+        else if (commandWord == Option.GO) {
             player.goRoom(command);
         }
-        else if(commandWord.equals("look")) {
+        else if(commandWord == Option.LOOK) {
             player.look();
         }
-        else if(commandWord.equals("eat")) {
+        else if(commandWord == Option.EAT) {
             player.eat();
         }
-        else if(commandWord.equals("back")) {
+        else if(commandWord == Option.BACK) {
             player.back();
         }
-        else if (commandWord.equals("items")){
+        else if (commandWord == Option.ITEMS){
             player.items();
         }
-        else if (commandWord.equals("take")){
+        else if (commandWord == Option.TAKE){
             player.take(command);
         }
-        else if (commandWord.equals("quit")) {
+        else if (commandWord == Option.QUIT) {
             wantToQuit = quit(command);
         }
-	else if (commandWord.equals("drop")){
-	    player.drop(command);
-	}
+        else if (commandWord == Option.DROP){
+            player.drop(command);
+        }
         return wantToQuit;
     }
 
@@ -181,7 +180,6 @@ public class Game
         parser.showCommands();
     }
 
-    
 
     /** 
      * "Quit" was entered. Check the rest of the command to see

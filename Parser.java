@@ -64,14 +64,12 @@ public class Parser
         }
 
         // Now check whether this word is known. If so, create a command
-        // with it. If not, create a "null" command (for unknown command).
-        if(commands.isCommand(word1)) {
-            return new Command(word1, word2);
-        }
-        else {
-            return new Command(null, word2); 
-        }
+        // with it. If not, create a for unknown command.
+
+        return new Command(commands.getCommandWord(word1), word2);
+        //el metodo getCommandWord ya lo compara si la palabra es valida
     }
+
     /**
      * que consiga imprimir por pantalla todos los comandos disponibles e invocarlo desde la clase Game.
      * @return imprimir por pantalla todos los comandos disponibles
