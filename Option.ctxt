@@ -1,2 +1,7 @@
 #BlueJ class context
-numComments=0
+comment0.params=optionString
+comment0.target=Option(java.lang.String)
+comment1.params=
+comment1.target=java.lang.String\ getOptionString()
+comment1.text=\r\n\r\n@return\ \r\n
+numComments=2
