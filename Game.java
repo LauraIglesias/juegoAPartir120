@@ -114,7 +114,7 @@ public class Game
         System.out.println();
         System.out.println("Welcome to the World of Zuul!");
         System.out.println("World of Zuul is a new, incredibly boring adventure game.");
-        System.out.println("Type 'help' if you need help.");
+        System.out.println("Type 'ayuda' if you need help.");
         System.out.println();
         player.printLocationInfo();
     }
@@ -132,35 +132,38 @@ public class Game
             System.out.println("I don't know what you mean...");
             return false;
         }
-        
+
         Option commandWord = command.getCommandWord();
-        if (commandWord == Option.HELP) {
+        switch (commandWord){
+            case HELP:
             printHelp();
-        }
-        else if (commandWord == Option.GO) {
+            break;
+            case GO:
             player.goRoom(command);
-        }
-        else if(commandWord == Option.LOOK) {
+            break;
+            case LOOK:
             player.look();
-        }
-        else if(commandWord == Option.EAT) {
+            break;
+            case EAT:
             player.eat();
-        }
-        else if(commandWord == Option.BACK) {
+            break;
+            case BACK:
             player.back();
-        }
-        else if (commandWord == Option.ITEMS){
+            break;
+            case ITEMS:
             player.items();
-        }
-        else if (commandWord == Option.TAKE){
+            break;
+            case TAKE:
             player.take(command);
-        }
-        else if (commandWord == Option.QUIT) {
+            break;
+            case QUIT:
             wantToQuit = quit(command);
-        }
-        else if (commandWord == Option.DROP){
+            break;
+            case DROP:
             player.drop(command);
+            break;
         }
+
         return wantToQuit;
     }
 
@@ -179,7 +182,6 @@ public class Game
         System.out.println("Your command words are:");
         parser.showCommands();
     }
-
 
     /** 
      * "Quit" was entered. Check the rest of the command to see
