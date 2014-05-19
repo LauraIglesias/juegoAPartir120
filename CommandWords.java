@@ -55,6 +55,7 @@ public class CommandWords
         for(String key :comandos.keySet()){
             System.out.print(" " + key);
         }
+        System.out.println();
     }
 
     /**
