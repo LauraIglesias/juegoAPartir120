@@ -137,6 +137,11 @@ public class Player
         if(item != null)
         {
             if(item.canBeTaken()){
+                if(item.esMagico()){
+                    double cargaAnadida = 12.0;
+                    cargaMaxima += cargaAnadida; 
+                    System.out.println("La carga maxima es: "+cargaMaxima);
+                }
                 if(item.getWeight() +  getTotalWeightItems() <= cargaMaxima) {
                     System.out.println("You add a new item to your bag");
                     mochila.add(item);
