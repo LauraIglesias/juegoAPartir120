@@ -78,8 +78,10 @@ public class Game
         castilla.addItem(new Item("Un cuchillo afilado", 0.5, true));
         castilla.addItem(new Item("Un cofre de oro", 3.0, true));
         castilla.addItem(new Item("Un baul de madera", 24.8, true));
+        castilla.addItem(new Item("Una moneda de oro",0.25,true));
 
         aragon.addItem(new Item("Una carreta", 35.5, false));
+        aragon.addItem(new Item("Una corona",2.2,true));
 
         granada.addItem(new Item("Una pocima contra el dolor de cabeza", 0.6, true));
 

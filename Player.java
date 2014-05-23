@@ -113,9 +113,6 @@ import java.util.Stack;
         
     }
   
-
-    
-    
     /**
      * Calculate the total weight for player's items.  
      * 
@@ -130,7 +127,6 @@ import java.util.Stack;
 		return peso;
 	}
 
- 
     /**
      * Take de item contained in the given command
      */ 
