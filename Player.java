@@ -150,7 +150,6 @@ public class Player
                     }else{
                         double cargaAnadida = 12.0;
                         cargaMaxima += cargaAnadida; 
-                        System.out.println("La carga maxima es: "+cargaMaxima);
                     }
                 }
                 if(item.getWeight() +  getTotalWeightItems() <= cargaMaxima) {
@@ -187,6 +186,21 @@ public class Player
         boolean searching = true;
         while( searching && index < mochila.size()){
             Item item = mochila.get(index);
+            if(item.esMagico()){
+                    if(item.esMalo()){
+                        double carga = 10;
+                        cargaMaxima += carga;
+                    }else{
+                        double cargaAnadida = 12.0;
+                        cargaMaxima -= cargaAnadida;
+                         while(getTotalWeightItems() > cargaMaxima){
+                            //dejar el primer objeto que existe en la mochila
+                            currentRoom.addItem(mochila.get(0));
+                            //borrar el primer objeto que existe en la mochila
+                            mochila.remove(0);
+                        }
+                    }
+                }
             if(item.getId().equals(id)){
                 currentRoom.addItem(item);
                 mochila.remove(index);
