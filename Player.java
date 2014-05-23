@@ -11,7 +11,7 @@ public class Player
     private Stack<Room> visitedRooms;
     private ArrayList<Item> mochila;
     private double cargaMaxima;
-    private static final double CARGA_MAXIMA_POR_DEFECTO=40;
+    private static final double CARGA_MAXIMA_POR_DEFECTO=50;
 
     public Player()
     {
@@ -138,9 +138,20 @@ public class Player
         {
             if(item.canBeTaken()){
                 if(item.esMagico()){
-                    double cargaAnadida = 12.0;
-                    cargaMaxima += cargaAnadida; 
-                    System.out.println("La carga maxima es: "+cargaMaxima);
+                    if(item.esMalo()){
+                        double carga = 10;
+                        cargaMaxima -= carga;
+                        while(getTotalWeightItems() > cargaMaxima){
+                            //dejar el primer objeto que existe en la mochila
+                            currentRoom.addItem(mochila.get(0));
+                            //borrar el primer objeto que existe en la mochila
+                            mochila.remove(0);
+                        }
+                    }else{
+                        double cargaAnadida = 12.0;
+                        cargaMaxima += cargaAnadida; 
+                        System.out.println("La carga maxima es: "+cargaMaxima);
+                    }
                 }
                 if(item.getWeight() +  getTotalWeightItems() <= cargaMaxima) {
                     System.out.println("You add a new item to your bag");
