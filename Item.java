@@ -12,6 +12,7 @@ public class Item
     private static int idSiguiente = 1; 
     private boolean canBeTaken;
     private boolean magico;
+    private boolean esMalo;
     
     /**
      * Constructor for objects of class Item
@@ -19,7 +20,7 @@ public class Item
      * @param description The item's description
      * @param weight The item's weight
      */
-    public Item(String description, double weight, boolean canBeTaken , boolean magico)
+    public Item(String description, double weight, boolean canBeTaken , boolean magico, boolean esMalo)
     {
         this.id = "" + idSiguiente;
         this.idSiguiente++;
@@ -28,6 +29,7 @@ public class Item
         this.weight = weight;
         this.canBeTaken = canBeTaken;
         this.magico = magico;
+        this.esMalo = esMalo;
     }
     
     /**
@@ -77,5 +79,13 @@ public class Item
     public boolean esMagico()
     {
         return magico;
+    }
+    /**
+     * @return true-> si el objeto magico es malo
+     *         false-> si el objeto no es malo
+     */
+    public boolean esMalo()
+    {
+        return esMalo;
     }
 }
