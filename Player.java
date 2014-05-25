@@ -11,7 +11,7 @@ public class Player
     private Stack<Room> visitedRooms;
     private ArrayList<Item> mochila;
     private double cargaMaxima;
-    private static final double CARGA_MAXIMA_POR_DEFECTO=50;
+    private static final double CARGA_MAXIMA_POR_DEFECTO=30;
 
     public Player()
     {
@@ -159,6 +159,7 @@ public class Player
                 }
                 else {
                     System.out.println("No hay espacio para este objeto");
+                    System.out.println("Solo puedes coger hasta "+ (cargaMaxima-getTotalWeightItems())+"Kg");
                 }
             }else{
                 System.out.println("El Objeto no se puede coger");
@@ -186,26 +187,35 @@ public class Player
         boolean searching = true;
         while( searching && index < mochila.size()){
             Item item = mochila.get(index);
-            if(item.esMagico()){
+            if(item.getId().equals(id)){
+                if(item.esMagico()){
                     if(item.esMalo()){
                         double carga = 10;
                         cargaMaxima += carga;
+                        currentRoom.addItem(item);
+                        mochila.remove(index);
+                        searching = false;
+                        System.out.println("El objeto se ha dejado en la habitacion");
                     }else{
                         double cargaAnadida = 12.0;
                         cargaMaxima -= cargaAnadida;
-                         while(getTotalWeightItems() > cargaMaxima){
+                        currentRoom.addItem(item);
+                        mochila.remove(index);
+                        searching = false;
+                        System.out.println("El objeto se ha dejado en la habitacion");
+                        while(getTotalWeightItems() > cargaMaxima){
                             //dejar el primer objeto que existe en la mochila
                             currentRoom.addItem(mochila.get(0));
                             //borrar el primer objeto que existe en la mochila
                             mochila.remove(0);
                         }
                     }
+                }else{
+                    currentRoom.addItem(item);
+                    mochila.remove(index);
+                    searching = false;
+                    System.out.println("El objeto se ha dejado en la habitacion");
                 }
-            if(item.getId().equals(id)){
-                currentRoom.addItem(item);
-                mochila.remove(index);
-                searching = false;
-                System.out.println("El objeto se ha dejado en la habitacion");
             }
             index++;
         }
