@@ -12,6 +12,8 @@ public class Player
     private ArrayList<Item> mochila;
     private double cargaMaxima;
     private static final double CARGA_MAXIMA_POR_DEFECTO=30;
+    private double carga;
+    private double cargaAnadida;
 
     public Player()
     {
@@ -19,6 +21,8 @@ public class Player
         visitedRooms = new Stack<>();
         mochila = new ArrayList<Item>();
         cargaMaxima = CARGA_MAXIMA_POR_DEFECTO;
+        carga = 10;
+        cargaAnadida = 12;
     }
 
     /** 
@@ -139,7 +143,6 @@ public class Player
             if(item.canBeTaken()){
                 if(item.esMagico()){
                     if(item.esMalo()){
-                        double carga = 10;
                         cargaMaxima -= carga;
                         while(getTotalWeightItems() > cargaMaxima){
                             //dejar el primer objeto que existe en la mochila
@@ -148,7 +151,6 @@ public class Player
                             mochila.remove(0);
                         }
                     }else{
-                        double cargaAnadida = 12.0;
                         cargaMaxima += cargaAnadida; 
                     }
                 }
@@ -190,14 +192,12 @@ public class Player
             if(item.getId().equals(id)){
                 if(item.esMagico()){
                     if(item.esMalo()){
-                        double carga = 10;
                         cargaMaxima += carga;
                         currentRoom.addItem(item);
                         mochila.remove(index);
                         searching = false;
                         System.out.println("El objeto se ha dejado en la habitacion");
                     }else{
-                        double cargaAnadida = 12.0;
                         cargaMaxima -= cargaAnadida;
                         currentRoom.addItem(item);
                         mochila.remove(index);
