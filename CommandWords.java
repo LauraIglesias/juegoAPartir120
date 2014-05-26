@@ -15,14 +15,15 @@ import java.util.Map;
 public class CommandWords
 {
     // a constant array that holds all valid command words
-    private HashMap<String, Option> comandos;
-
+    // private HashMap<String, Option> comandos;
+    private Option[] commands;
     /**
      * Constructor - initialise the command words.
      */
     public CommandWords()
     {
-        comandos = new HashMap<>();
+        commands = Option.values();
+        /* comandos = new HashMap<>();
         comandos.put(Option.GO.getOptionString(), Option.GO);
         comandos.put(Option.QUIT.getOptionString(), Option.QUIT);
         comandos.put(Option.HELP.getOptionString(), Option.HELP);
@@ -31,7 +32,7 @@ public class CommandWords
         comandos.put(Option.BACK.getOptionString(), Option.BACK);
         comandos.put(Option.ITEMS.getOptionString(), Option.ITEMS);
         comandos.put(Option.TAKE.getOptionString(), Option.TAKE);
-        comandos.put(Option.DROP.getOptionString(), Option.DROP);
+        comandos.put(Option.DROP.getOptionString(), Option.DROP);*/
     }
 
     /**
@@ -43,7 +44,19 @@ public class CommandWords
      */
     public boolean isCommand(String aString)
     {
-        return comandos.containsKey(aString);
+        //return comandos.containsKey(aString);
+        boolean command = false;
+        int index= 0; 
+        while (index<commands.length && !command){
+            Option key = commands[index];
+            if (key != Option.UNKNOWN){
+                if (key.getOptionString().equals(aString)){
+                    command= true;
+                }
+            }
+            index++;
+        }
+        return command;
     }
 
     /**
@@ -52,10 +65,15 @@ public class CommandWords
      */    
     public void showAll()
     {
-        for(String key :comandos.keySet()){
-            System.out.print(" " + key);
+        /* for(String key :comandos.keySet()){
+        System.out.print(" " + key);
         }
-        System.out.println();
+        System.out.println();*/
+        for(Option option: commands){
+            if (option != Option.UNKNOWN){
+                System.out.print(option.getOptionString()+ " ");
+            }
+        }
     }
 
     /**
@@ -70,11 +88,25 @@ public class CommandWords
      */
     public Option getCommandWord(String commandWord)
     {
-        Option opciones = Option.UNKNOWN; 
+        /*Option opciones = Option.UNKNOWN; 
         if(isCommand(commandWord) == true){
-            opciones =  comandos.get(commandWord);
+        opciones =  comandos.get(commandWord);
         }
-        return opciones;
+        return opciones;*/
+        Option comando= Option.UNKNOWN;
+        boolean encontrado = false;
+        int index=0;
+        while(index<commands.length && !encontrado) {
+            Option key = commands[index];
+            if (key != Option.UNKNOWN){
+                if (key.getOptionString().equals(commandWord)){
+                    encontrado = true;
+                    comando = key;
+                }
+            }
+            index++;
+        }	  
+        return comando;
     }
 }
 

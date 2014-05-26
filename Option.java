@@ -8,7 +8,7 @@
 public enum Option
 {
     GO("ir"), QUIT("salir"), HELP("ayuda"), LOOK("mirar"), EAT("comer"), BACK("atras"),
-    ITEMS("objetos"),TAKE("coger"),DROP("dejar"),UNKNOWN("desconocido");
+    ITEMS("objetos"),TAKE("coger"),DROP("dejar"),UNKNOWN("");
     private String optionString;
 
     Option(String optionString)
